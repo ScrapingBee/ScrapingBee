@@ -1,0 +1,9 @@
+{
+  "name": "scrapingbee/php-example",
+  "description": "PHP example for the ScrapingBee web scraping API",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.0",
+    "ext-curl": "*"
+  }
+}

@@ -1,0 +1,4 @@
+source 'https://rubygems.org'
+
+# net/http ships with Ruby, no gems required.
+ruby '>= 3.0'
