@@ -1,0 +1,91 @@
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  syntax:
+    name: Example syntax
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Python
+        run: python -m py_compile python/scrape.py
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Node
+        run: node --check nodejs/scrape.js
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.21"
+      - name: Go
+        run: |
+          cd go
+          gofmt -l . | tee /dev/stderr | (! read)
+          go vet ./...
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Java
+        run: javac -d /tmp/javac java/Scrape.java
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+      - name: PHP
+        run: php -l php/scrape.php
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+      - name: Ruby
+        run: ruby -c ruby/scrape.rb
+
+      - name: Shell
+        run: |
+          bash -n curl/scrape.sh
+          bash -n cli/scrape.sh
+
+  readmes:
+    name: READMEs match their source files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Regenerate and diff
+        run: |
+          python build_readmes.py
+          if ! git diff --quiet; then
+            echo "A folder README no longer matches its source file."
+            echo "Run 'python build_readmes.py' and commit the result."
+            git diff --stat
+            exit 1
+          fi
+
+  links:
+    name: Documentation links resolve
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check scrapingbee.com and github.com links
+        run: |
+          fail=0
+          for url in $(grep -oh 'https://\(www\.scrapingbee\.com\|github\.com\)[^)"< ]*' README.md */README.md | sed 's/[.,]$//' | sort -u); do
+            code=$(curl -s -o /dev/null -w "%{http_code}" -L --max-time 25 "$url" || echo 000)
+            if [ "$code" != "200" ]; then echo "  $code  $url"; fail=1; fi
+          done
+          exit $fail
