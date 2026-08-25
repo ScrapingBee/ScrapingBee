@@ -27,6 +27,7 @@ This repository holds runnable examples for every endpoint, in eight languages, 
 - [Auto-Mode](#auto-mode)
 - [Quickstart](#quickstart)
 - [Examples by language](#examples-by-language)
+- [Ready-made packages](#ready-made-packages)
 - [Dedicated scrapers](#dedicated-scrapers)
 - [Integrations](#integrations)
 - [Use cases](#use-cases)
@@ -136,6 +137,27 @@ Each folder is self-contained: a script, a dependency manifest, and a README cov
 | [php](php/) | PHP 8.0+ | cURL extension |
 | [ruby](ruby/) | Ruby 3.0+ | `net/http` |
 
+## Ready-made packages
+
+If you would rather install a client than copy an example, these wrap every endpoint below,
+including Auto-Mode, Shopee and agentic search:
+
+```bash
+pip install web-scraping-api-sdk
+npm install web-scraping-api-sdk
+```
+
+```python
+from web_scraping_api_sdk import ScrapingBeeAPI
+
+api = ScrapingBeeAPI("YOUR-API-KEY")
+page = api.auto("https://example.com", max_cost=25)
+print(page.auto_cost)
+```
+
+Community packages, published separately from ScrapingBee's own SDKs listed under
+[Integrations](#integrations).
+
 ## Dedicated scrapers
 
 Nine endpoints return parsed JSON, so there is no HTML to select against and no selectors to repair when a layout changes.
@@ -156,9 +178,9 @@ The Google endpoint covers eight surfaces through one `search_type` parameter:
 
 | `search_type` | Returns | Landing page |
 | --- | --- | --- |
-| `classic` | Organic results, the default | [Google search API](https://www.scrapingbee.com/scrapers/google-search-api/) |
-| `news` | News results | [Google News API](https://www.scrapingbee.com/scrapers/google-news-api/) |
-| `maps` | Local listings | [Google Maps API](https://www.scrapingbee.com/scrapers/google-maps-api/) |
+| `classic` | Organic results, the default | [Google search feature page](https://www.scrapingbee.com/features/google/) |
+| `news` | News results | [Google News API](https://www.scrapingbee.com/scrapers/google-news-scraper-api/) |
+| `maps` | Local listings | [Google API reference](https://www.scrapingbee.com/documentation/google-api/) |
 | `images` | Image results | [Google Images API](https://www.scrapingbee.com/scrapers/images-results-api/) |
 | `lens` | Visual matches for an image URL | [Google Lens API](https://www.scrapingbee.com/scrapers/google-lens-api/) |
 | `shopping` | Product listings, sortable and price-filtered | [Google Shopping API](https://www.scrapingbee.com/scrapers/google-shopping-api/) |
