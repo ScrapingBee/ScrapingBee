@@ -2,9 +2,10 @@
 
 <p align="center">
   <a href="https://www.scrapingbee.com/">
-    <img src="REPLACE_WITH_SCREENSHOT_URL" alt="ScrapingBee" />
+    <img src="https://github.com/user-attachments/assets/58efe2ea-7527-41f7-9102-7242314c79ab" alt="ScrapingBee" />
   </a>
 </p>
+
 
 ScrapingBee is a [web scraping API](https://www.scrapingbee.com/features/ai-web-scraping-api/) that takes one HTTP request and returns the rendered page, a screenshot, or structured JSON. It runs the headless browser, rotates the proxies, and handles the anti-bot layer, so the only thing your code sends is a URL and a few parameters.
 
