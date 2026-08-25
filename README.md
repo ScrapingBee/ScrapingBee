@@ -1,11 +1,5 @@
 # ScrapingBee Web Scraping API
 
-[![checks](https://github.com/ScrapingBee/ScrapingBee/workflows/checks/badge.svg)](https://github.com/ScrapingBee/ScrapingBee/actions)
-[![pypi](https://img.shields.io/pypi/v/web-scraping-api-sdk.svg)](https://pypi.org/project/web-scraping-api-sdk/)
-[![python](https://img.shields.io/pypi/pyversions/web-scraping-api-sdk.svg)](https://pypi.org/project/web-scraping-api-sdk/)
-[![npm](https://img.shields.io/npm/v/web-scraping-api-sdk.svg)](https://www.npmjs.com/package/web-scraping-api-sdk)
-[![node](https://img.shields.io/node/v/web-scraping-api-sdk.svg)](https://www.npmjs.com/package/web-scraping-api-sdk)
-[![license](https://img.shields.io/github/license/ScrapingBee/ScrapingBee.svg)](LICENSE)
 
 <p align="center">
   <a href="https://www.scrapingbee.com/">
@@ -13,6 +7,12 @@
   </a>
 </p>
 
+[![checks](https://github.com/ScrapingBee/ScrapingBee/workflows/checks/badge.svg)](https://github.com/ScrapingBee/ScrapingBee/actions)
+[![pypi](https://img.shields.io/pypi/v/web-scraping-api-sdk.svg)](https://pypi.org/project/web-scraping-api-sdk/)
+[![python](https://img.shields.io/pypi/pyversions/web-scraping-api-sdk.svg)](https://pypi.org/project/web-scraping-api-sdk/)
+[![npm](https://img.shields.io/npm/v/web-scraping-api-sdk.svg)](https://www.npmjs.com/package/web-scraping-api-sdk)
+[![node](https://img.shields.io/node/v/web-scraping-api-sdk.svg)](https://www.npmjs.com/package/web-scraping-api-sdk)
+[![license](https://img.shields.io/github/license/ScrapingBee/ScrapingBee.svg)](LICENSE)
 
 
 
